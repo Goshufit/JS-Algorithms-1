@@ -2,66 +2,66 @@
 // Return a string in reverse
 // ex. reverseString('hello') === 'olleh'
 
-function reverseString(str) {
-  //Split method turns a string into an array it takes in a seperator value if you put in '' it will
-  // take single letters but if you put in ' ' with a space it takes the whole word//
-  //   const strArr = str.split('');
-  //   //The array reverse method reverses an array//
-  //   strArr.reverse();
-  // //The join method turns an array into a string//
-  //   return strArr.join('');
+// function reverseString(str) {
+//   //Split method turns a string into an array it takes in a seperator value if you put in '' it will
+//   // take single letters but if you put in ' ' with a space it takes the whole word//
+//   //   const strArr = str.split('');
+//   //   //The array reverse method reverses an array//
+//   //   strArr.reverse();
+//   // //The join method turns an array into a string//
+//   //   return strArr.join('');
 
-  //Clean version//
+//   //Clean version//
 
-  // return str
-  //   .split('')
-  //   .reverse()
-  //   .join('');
+//   // return str
+//   //   .split('')
+//   //   .reverse()
+//   //   .join('');
 
-  //For loop version//
+//   //For loop version//
 
-  //   let revString = '';
-  //   //Make sure to subtract 1 from string length because it will start at a 0 
-  //   //index giving more than the length of the string the .length method starts at the number 0//
-  //   // for(let i = str.length - 1; i >= 0; i--) {
-  //   //   revString = revString + str[i];
-  //   // }
-  //   // return revString;
+//   //   let revString = '';
+//   //   //Make sure to subtract 1 from string length because it will start at a 0 
+//   //   //index giving more than the length of the string the .length method starts at the number 0//
+//   //   // for(let i = str.length - 1; i >= 0; i--) {
+//   //   //   revString = revString + str[i];
+//   //   // }
+//   //   // return revString;
 
-  //   //or
+//   //   //or
 
-  //   for(let i = 0; i <= str.length - 1; i++) {
-  //       revString = str[i] + revString;
-  //     }
-  //     return revString; 
+//   //   for(let i = 0; i <= str.length - 1; i++) {
+//   //       revString = str[i] + revString;
+//   //     }
+//   //     return revString; 
 
-  //or 'for..of' loop a more up to date algorithm
-  //When the loop does trough the work rather than it looping and keeping the position of the letter or number it hits 
-  //the first letter and logs it then the second and so on for instance first loop 'h' 
-  //second loop 'e' but instead of it being 'he' it is 'eh' because it loops and grabs them one time per loop.
+//   //or 'for..of' loop a more up to date algorithm
+//   //When the loop does trough the work rather than it looping and keeping the position of the letter or number it hits 
+//   //the first letter and logs it then the second and so on for instance first loop 'h' 
+//   //second loop 'e' but instead of it being 'he' it is 'eh' because it loops and grabs them one time per loop.
 
-  // let revString = '';
-  // for (let char of str) {
-  //   revString = char + revString;
-  // }
-  // return revString;
+//   // let revString = '';
+//   // for (let char of str) {
+//   //   revString = char + revString;
+//   // }
+//   // return revString;
 
 
-  //High order array function technique//
+//   //High order array function technique//
 
-  //forEach()
+//   //forEach()
 
-  // let revString = '';
-  // str.split('').forEach(char =>
-  //   revString = char + revString
-  // );
-  // return revString;
+//   // let revString = '';
+//   // str.split('').forEach(char =>
+//   //   revString = char + revString
+//   // );
+//   // return revString;
 
-  //reduce()
+//   //reduce()
 
-  return str.split('').reduce((revString, char) =>
-    char + revString, '');
-}
+//   return str.split('').reduce((revString, char) =>
+//     char + revString, '');
+// }
 
 
 
@@ -69,7 +69,12 @@ function reverseString(str) {
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-function isPalindrome(str) { }
+//PALINDROME a word that spelled backwards is the same spelled forwars for example racecar//
+function isPalindrome(str) {
+  const revString = str.split('').reverse().join('');
+
+  return revString === str;
+ }
 
 
 
@@ -77,7 +82,14 @@ function isPalindrome(str) { }
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
 
-function reverseInt(int) { }
+function reverseInt(int) {
+  //The toString() method returns a string//
+  const revString = int.toString().split('').reverse().join('');
+
+  //The parseInt function returns a number/integer. Math property with the sign method allows the parseInt function
+  // to return a number regardless if it is a negative or positive number.
+  return parseInt(revString)  * Math.sign(int);
+ }
 
 
 
@@ -102,6 +114,6 @@ function fizzBuzz() { }
 
 
 // Call Function
-const output = reverseString('hello');
+const output = reverseInt(-12345);
 
 console.log(output);
